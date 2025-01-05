@@ -1,10 +1,5 @@
-import {
-  Text,
-  type TextProps,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
-} from "react-native";
+import { Colors } from "@/constants/Colors";
+import { Text, StyleSheet, type TextProps, type TextStyle } from "react-native";
 
 export type ThemedTextProps = TextProps & {
   color?: string;
@@ -17,7 +12,7 @@ export type ThemedTextProps = TextProps & {
 
 export function ThemedText({
   style,
-  color,
+  color = Colors.white,
   bg,
   size = "md",
   type = "default",
@@ -26,27 +21,28 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const fontSizeMap = {
-    xs: 4,
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 20,
-    "2xl": 24,
-    "3xl": 28,
+    xs: 10,
+    sm: 12,
+    md: 14,
+    lg: 18,
+    xl: 22,
+    "2xl": 26,
+    "3xl": 30,
   } as const;
 
   // @ts-ignore
-  const fontSize = Number.isNaN(size) ? fontSizeMap[size] : size;
+  const fontSize = typeof size == "string" ? fontSizeMap[size] : size;
 
-  const textStyles: StyleProp<TextStyle> = {
+  const textStyles: TextStyle = {
     color,
     fontSize,
+    lineHeight: fontSize && fontSize + 5,
     fontFamily: family,
     textAlign: align,
     backgroundColor: bg,
   };
 
-  return <Text style={[textStyles, styles[type], style]} {...rest} />;
+  return <Text style={[styles[type], textStyles, style]} {...rest} />;
 }
 
 const styles = StyleSheet.create({

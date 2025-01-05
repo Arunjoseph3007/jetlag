@@ -31,7 +31,7 @@ export default function LobbyScreen() {
 
   const start = () => {
     console.log("start");
-    router.push("/");
+    router.push("/chaser");
   };
 
   return (
