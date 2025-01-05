@@ -13,12 +13,12 @@ export default function HomeScreen() {
   // callbacks
   const join = () => {
     console.log("join", code);
-    router.push('/lobby')
+    router.push("/lobby");
   };
-  
+
   const create = () => {
     console.log("create");
-    router.push('/lobby')
+    router.push("/lobby");
   };
 
   return (
