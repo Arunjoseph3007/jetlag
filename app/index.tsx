@@ -51,7 +51,7 @@ export default function HomeScreen() {
           style={[styles.btn, { backgroundColor: Colors.accentPink }]}
           onPress={join}
         >
-          <ThemedText darkColor={Colors.black} style={styles.btnText}>
+          <ThemedText color={Colors.black} style={styles.btnText}>
             JOIN
           </ThemedText>
         </TouchableOpacity>
@@ -62,7 +62,7 @@ export default function HomeScreen() {
           style={[styles.btn, { backgroundColor: Colors.accentGreen }]}
           onPress={create}
         >
-          <ThemedText darkColor={Colors.black} style={styles.btnText}>
+          <ThemedText color={Colors.black} style={styles.btnText}>
             CREATE
           </ThemedText>
         </TouchableOpacity>

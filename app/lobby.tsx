@@ -37,7 +37,7 @@ export default function LobbyScreen() {
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={styles.codeBox}>
-        <ThemedText style={styles.code} darkColor={Colors.black}>
+        <ThemedText style={styles.code} color={Colors.black}>
           {code}
         </ThemedText>
         <TouchableOpacity onPress={copyCode}>
@@ -72,7 +72,7 @@ export default function LobbyScreen() {
                 />
               )}
               <ThemedText style={styles.playerName}>{player.name}</ThemedText>
-              <ThemedView style={styles.colorBox} darkColor={player.color} />
+              <ThemedView style={styles.colorBox} bg={player.color} />
             </TouchableOpacity>
           )}
         />
