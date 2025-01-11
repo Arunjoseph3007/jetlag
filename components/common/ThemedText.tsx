@@ -7,7 +7,8 @@ export type ThemedTextProps = TextProps & {
   type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | number;
   family?: string;
-  align?: "auto" | "left" | "right" | "center" | "justify" | undefined;
+  align?: TextStyle["textAlign"];
+  weight?: TextStyle["fontWeight"];
 };
 
 export function ThemedText({
@@ -18,6 +19,7 @@ export function ThemedText({
   type = "default",
   align,
   family,
+  weight,
   ...rest
 }: ThemedTextProps) {
   const fontSizeMap = {
@@ -40,6 +42,7 @@ export function ThemedText({
     fontFamily: family,
     textAlign: align,
     backgroundColor: bg,
+    fontWeight: weight,
   };
 
   return <Text style={[styles[type], textStyles, style]} {...rest} />;
